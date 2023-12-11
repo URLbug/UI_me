@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>DailyUI Challenge 001</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container">
+	<header>
+		<h1>
+			<a href="#">
+				<img src="img/logo-1.png" alt="Authentic Collection">
+			</a>
+		</h1>
+	</header>
+	<h1 class="text-center">Register</h1>
+	<form class="registration-form" action="php/register.php" method="post">
+		<label class="col-one-half">
+			<span class="label-text">First Name</span>
+			<input type="text" name="firstName">
+		</label>
+		<label class="col-one-half">
+			<span class="label-text">Last Name</span>
+			<input type="text" name="lastName">
+		</label>
+		<label>
+			<span class="label-text">Email</span>
+			<input type="text" name="email">
+		</label>
+		<label class="password">
+			<span class="label-text">Password</span>
+			<button class="toggle-visibility" title="toggle password visibility" tabindex="-1">
+				<span class="glyphicon glyphicon-eye-close"></span>
+			</button>
+			<input type="password" name="password">
+		</label>
+		<div class="text-center">
+			<button class="submit" name="register">Sign Me Up</button>
+		</div>
+	</form>
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
