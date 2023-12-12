@@ -1,0 +1,27 @@
+services:
+    
+  php:
+    build: php # собираем свой образ php из Dockerfile 
+    ports:
+      - 8080:8080
+    volumes:
+      - ./php/mySite.ini:/usr/local/etc/php/conf.d/mySite.ini:ro # :ro -- read only
+      - ../src:/UI_me
+    working_dir: /UI_me/src
+    entrypoint: [php, -S, localhost:8080]
+    depends_on:
+      - mysql # наш сайт не может работать без базы данных
+      
+  mysql: # раз уж мы решили работать с mysql, то нам нужен mysql-сервер
+    image: mysql # используем официальный образ mysql https://hub.docker.com/_/mysql
+    environment: # переменные окружения управляют настройками mysql в контейнере, читайте об этом в описании образа https://hub.docker.com/_/mysql
+      MYSQL_DATABASE: UI_me
+      MYSQL_USER: root
+      MYSQL_PASSWORD: passw0rd
+      MYSQL_RANDOM_ROOT_PASSWORD: true
+    volumes:
+      - ./mysql/mySite.cfg:/etc/mysql/conf.d/mySite.cfg:ro
+      - ./mysql/data:/var/lib/mysql # файлы базы данных из контейнера пробросим в локальную папку mysql/data, чтобы не терять данные при перезапуске контейнера
+  
+  python:
+    image: python

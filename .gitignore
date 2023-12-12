@@ -1,4 +1,8 @@
 src/python/__pycache__
+src/python/handler/__pycache__
+src/python/database/__pycache__
+docker/mysql/data
+
 
 src/php/config.json
 src/python/config_bot.json
