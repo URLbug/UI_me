@@ -124,5 +124,22 @@ formValidation = {
 			$input.parent().find('span.label-text').append(' <small class="error">(Your password must longer than 7 characters)</small>');
 			return false;
 		}
+	},
+
+	submitFormHandler: function() {
+		this.validateFirstNameHandler();
+		this.validateLastNameHandler();
+		this.validateEmailHandler();
+		this.validatePasswordHandler();   
+	   
+		if(this.validatedFields.firstName && this.validatedFields.lastName && this.validatedFields.email && this.validatedFields.password)
+	   	{
+			alert("You have successfully registered");
+			return true;
+		}
+		else{
+			alert("Lol u dumb");
+			return false;
+		}
 	}
 }.init();
